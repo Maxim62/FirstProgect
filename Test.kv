@@ -1,0 +1,982 @@
+
+#: import WipeTransition kivy.uix.screenmanager.WipeTransition
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+#: import ScrollEffect kivy.effects.scroll.ScrollEffect
+
+ScreenManager:
+	transition: WipeTransition()
+	MainScreen:
+	PravScreen:
+	St_18_Screen:
+	St_19_Screen:
+	St_23_Screen:
+	St_24_Screen:
+	MenuScreen:
+	MeryScreen:
+	PmScreen:
+	ObshPmScreen:
+	RazbPmScreen:
+	UstrPmScreen:
+	WorkPmScreen:
+	LookPmScreen:
+	CheckPmScreen:
+	AkScreen:
+	DeistvScreen:
+	Deistv_pmScreen:
+	Deistv_akScreen:
+	Norm_pmScreen:
+	Norm1pmScreen:
+	Norm2pmScreen:
+	Norm3pmScreen:
+	Norm4pmScreen:
+	Norm5pmScreen:
+	Norm6pmScreen:
+
+
+
+
+<MainScreen>:
+	name: 'main'
+	FloatLayout:
+		Image:
+			source: 'Images/filial.jpg'
+			allow_stretch: True
+			keep_ratio: False
+		BoxLayout:
+			orientation: 'vertical'
+			Image:
+				size_hint: (1, .13)
+				source:'Images/Znakmvdrussia.png'				
+			Label:
+				size_hint_y: None
+				height: self.texture_size[1]
+				text_size: self.width, None
+				color: 1, 1, 1, 1
+				background_color: 51/255, 102/255, 255/255, 1
+				halign: 'center'
+				valign: 'bottom'
+				text: 'Рязанский филиал Московского университета МВД России имени В.Я.Кикотя'
+				font_size: 15	
+			Label:
+				size_hint: (1, .8)
+			Button:
+				text: "Огневая подготовка"
+				font_size: 20
+				size_hint: (1, .1)
+				color: 255/255, 0/255, 0/255, 1
+				background_normal: ''
+				background_color: 1, 1, 1, 1 #51/255, 102/255, 255/255, 1
+				on_release: app.root.current = "menu"
+				opacity: .5 # Прозрачность
+
+<MenuScreen>:
+	name: "menu"
+	BoxLayout:
+		orientation: "vertical"
+		#spacing: 10
+		#padding: 10
+		MenuButton:
+			text: 'Правовые основы применения огнестрельного оружия'
+			on_release: app.root.current = 'prav'
+		MenuButton:	
+			text: 'Меры безопасности при проведении стрельб, обращении с оружием и боеприпасами'
+			on_release: app.root.current = 'mery'
+		MenuButton:
+			text: '9 мм пистолет Макарова'
+			on_release: app.root.current = 'pm'
+		MenuButton:
+			text: '5,45 мм автомат Калашникова'
+			#on_release: app.root.current = 'ak'
+		MenuButton:
+			text: 'Действия обучаемых по подаваемым командам при стрельбе'
+			on_release: app.root.current = 'deistv'
+		MenuButton:
+			text: 'Нормативы по огневой подготовке "Пистолет Макарова"'
+			on_release: app.root.current = 'norm_pm'
+		MenuButton:
+			text: 'Нормативы по огневой подготовке "Автомат Калашникова"'
+			#on_release: app.root.current = 'norm_ak'
+		MenuButton:
+			text: 'Упражнения стрельб из пистолета для курсантов и слушателей'
+			#on_release: app.root.current = 'upr_pm'
+		MenuButton:
+			text: 'Упражнения стрельб из автомата для курсантов и слушателей'
+			#on_release: app.root.current = 'upr_ak'
+		MenuButton:
+			text: 'Пройти тест'
+		MenuButton:
+			text: 'Назад'
+			on_release: app.root.current = 'main'
+		
+<MenuButton@Button>:
+	background_normal: ''
+	background_color: 51/255, 102/255, 255/255, 1
+	text_size: self.width, None
+	font_size: 11
+	halign: 'center'
+	valign: 'bottom'
+
+<PravScreen>:
+	name: 'prav'
+	BoxLayout:
+		orientation: "vertical"
+		MenuButton:
+			text: 'Статья 18. Право на применение физической силы, специальных средств и огнестрельного оружия'
+			on_release: app.root.current = 'st_18'
+		MenuButton:	
+			text: 'Статья 19. Порядок применения физической силы, специальных средств и огнестрельного оружия'
+			on_release: app.root.current = 'st_19'
+		MenuButton:
+			text: 'Статья 23. Применение огнестрельного оружия'
+			on_release: app.root.current = 'st_23'
+		MenuButton:
+			text: 'Статья 24. Гарантии личной безопасности вооруженного сотрудника полиции'
+			on_release: app.root.current = 'st_24'
+		MenuButton:
+			text: 'Назад'
+			on_release: app.root.current = 'menu'
+
+<St_18_Screen>:
+	name: 'st_18'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "prav"		
+	
+<St_19_Screen>:
+	name: 'st_19'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "prav"		
+	
+<St_23_Screen>:
+	name: 'st_23'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "prav"		
+
+<St_24_Screen>:
+	name: 'st_24'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "prav"
+
+<MeryScreen>:
+	name: "mery"
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 1
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "menu"
+
+<PmScreen>:
+	name: "pm"
+	BoxLayout:
+		orientation: "vertical"
+		#spacing: 3
+		MenuButton:
+			text: 'Общие сведения'
+			on_release: app.root.current = "obsh_pm"
+		MenuButton:
+			text: 'Разборка, сборка, чистка и смазка пистолета'
+		MenuButton:
+			text: 'Назначение и устройство частей и механизмов пистолета, патронов и принадлежности'
+		MenuButton:
+			text: 'Работа частей и механизмов пистолета'
+		MenuButton:
+			text: 'Осмотр, подготовка к стрельбе пистолета и патронов, уход за ними и их сбережение'
+		MenuButton:
+			text: 'Проверка боя пистолета и приведение его к нормальному бою'
+		MenuButton:
+			text: 'Назад'
+			on_release: app.root.current = 'menu'
+
+<ObshPmScreen>:
+	name: "obsh_pm"
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					Image:
+						size_hint_y: None
+						height: self.texture_size[1]
+						source: 'Images/Pm_titul.png'
+							
+						#allow_stretch: True
+						#keep_ratio: False
+
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+					
+
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "pm"		
+
+<RazbPmScreen>:
+	name: ''
+	BoxLayout:
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1, .05)
+			BackgroundLabel:
+				background_color: 51/255, 102/255, 255/255, 1
+				text: "root.text"
+				color: (0, 0, 0, 1)
+			Button:
+				size_hint: (.3, 1)
+				text: 'Назад'
+				color: (0, 0, 0, 1)
+				background_color: 51/255, 102/255, 255/255, 1
+				on_release: app.root.current = "pm"
+		ScrollView:
+			effect_cls: ScrollEffect
+			GridLayout:
+				rows: 3
+				size_hint_y: None
+				height: self.minimum_height
+				BackgroundLabel:
+					background_color: 1, 204/255, 153/255, 1
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10, 10
+					#text: root.text
+					halign: "justify" #Выравнивание по ширине
+					valign: 'middle'
+					color: (0, 0, 0, 1)		
+		        Image:
+					size_hint_y: None
+					height: self.texture_size[1]
+					source: 'Pm_titul.jpg'
+					allow_stretch: True
+					keep_ratio: False		
+				BackgroundLabel:
+					background_color:1,0,1,1 
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10,10 
+					#text:root.text1	
+					halign: "justify"				
+
+<UstrPmScreen>:
+	name: ''
+	BoxLayout:
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1, .05)
+			BackgroundLabel:
+				background_color: 51/255, 102/255, 255/255, 1
+				text: "root.text"
+				color: (0, 0, 0, 1)
+			Button:
+				size_hint: (.3, 1)
+				text: 'Назад'
+				color: (0, 0, 0, 1)
+				background_color: 51/255, 102/255, 255/255, 1
+				on_release: app.root.current = "pm"
+		ScrollView:
+			effect_cls: ScrollEffect
+			GridLayout:
+				rows: 3
+				size_hint_y: None
+				height: self.minimum_height
+				BackgroundLabel:
+					background_color: 1, 204/255, 153/255, 1
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10, 10
+					#text: root.text
+					halign: "justify" #Выравнивание по ширине
+					valign: 'middle'
+					color: (0, 0, 0, 1)		
+		        Image:
+					size_hint_y: None
+					height: self.texture_size[1]
+					source: 'Pm_titul.jpg'
+					allow_stretch: True
+					keep_ratio: False		
+				BackgroundLabel:
+					background_color:1,0,1,1 
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10,10 
+					#text:root.text1	
+					halign: "justify"				
+
+<WorkPmScreen>:
+	name: ''
+	BoxLayout:
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1, .05)
+			BackgroundLabel:
+				background_color: 51/255, 102/255, 255/255, 1
+				text: "root.text"
+				color: (0, 0, 0, 1)
+			Button:
+				size_hint: (.3, 1)
+				text: 'Назад'
+				color: (0, 0, 0, 1)
+				background_color: 51/255, 102/255, 255/255, 1
+				on_release: app.root.current = "pm"
+		ScrollView:
+			effect_cls: ScrollEffect
+			GridLayout:
+				rows: 3
+				size_hint_y: None
+				height: self.minimum_height
+				BackgroundLabel:
+					background_color: 1, 204/255, 153/255, 1
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10, 10
+					#text: root.text
+					halign: "justify" #Выравнивание по ширине
+					valign: 'middle'
+					color: (0, 0, 0, 1)		
+		        Image:
+					size_hint_y: None
+					height: self.texture_size[1]
+					source: 'Pm_titul.jpg'
+					allow_stretch: True
+					keep_ratio: False		
+				BackgroundLabel:
+					background_color:1,0,1,1 
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10,10 
+					#text:root.text1	
+					halign: "justify"				
+
+<LookPmScreen>:
+	name: ''
+	BoxLayout:
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1, .05)
+			BackgroundLabel:
+				background_color: 51/255, 102/255, 255/255, 1
+				text: "root.text"
+				color: (0, 0, 0, 1)
+			Button:
+				size_hint: (.3, 1)
+				text: 'Назад'
+				color: (0, 0, 0, 1)
+				background_color: 51/255, 102/255, 255/255, 1
+				on_release: app.root.current = "pm"
+		ScrollView:
+			effect_cls: ScrollEffect
+			GridLayout:
+				rows: 3
+				size_hint_y: None
+				height: self.minimum_height
+				BackgroundLabel:
+					background_color: 1, 204/255, 153/255, 1
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10, 10
+					#text: root.text
+					halign: "justify" #Выравнивание по ширине
+					valign: 'middle'
+					color: (0, 0, 0, 1)		
+		        Image:
+					size_hint_y: None
+					height: self.texture_size[1]
+					source: 'Pm_titul.jpg'
+					allow_stretch: True
+					keep_ratio: False		
+				BackgroundLabel:
+					background_color:1,0,1,1 
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10,10 
+					#text:root.text1	
+					halign: "justify"								
+
+<CheckPmScreen>:
+	name: ''
+	BoxLayout:
+		orientation: 'vertical'
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1, .05)
+			BackgroundLabel:
+				background_color: 51/255, 102/255, 255/255, 1
+				text: "root.text"
+				color: (0, 0, 0, 1)
+			Button:
+				size_hint: (.3, 1)
+				text: 'Назад'
+				color: (0, 0, 0, 1)
+				background_color: 51/255, 102/255, 255/255, 1
+				on_release: app.root.current = "pm"
+		ScrollView:
+			effect_cls: ScrollEffect
+			GridLayout:
+				rows: 3
+				size_hint_y: None
+				height: self.minimum_height
+				BackgroundLabel:
+					background_color: 1, 204/255, 153/255, 1
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10, 10
+					#text: root.text
+					halign: "justify" #Выравнивание по ширине
+					valign: 'middle'
+					color: (0, 0, 0, 1)		
+		        Image:
+					size_hint_y: None
+					height: self.texture_size[1]
+					source: 'Pm_titul.jpg'
+					allow_stretch: True
+					keep_ratio: False		
+				BackgroundLabel:
+					background_color:1,0,1,1 
+					size_hint_y: None
+					height: self.texture_size[1]
+					text_size: self.width, None
+					padding: 10,10 
+					#text:root.text1	
+					halign: "justify"								
+
+<AkScreen>:
+	name: "ak"
+	BoxLayout:
+		orientation: "vertical"
+		spacing: 3
+		Button:
+			text: 'Общие сведения'
+			on_release: app.root.current = 'obsh_ak'
+		Button:
+			text: 'Разборка, сборка, чистка и смазка пистолета'
+		Button:
+			text: 'назначение и устройство частей и механизмов пистолета, патронов и принадлежности'
+		Button:
+			text: 'Работа частей и механизмов пистолета'
+		Button:
+			text: 'Осмотр, подготовка к стрельбе пистолета и патронов, уход за ними и их сбережение'
+		Button:
+			text: 'Проверка боя пистолета и приведение его к нормальному бою'
+		Button:
+			text: 'Назад'
+			on_release: app.root.current = 'menu'
+
+<DeistvScreen>:
+	name: "deistv"
+	BoxLayout:
+		orientation: "vertical"
+		#spacing: 3
+		MenuButton:
+			text: 'Общие сведения'
+			on_release: app.root.current = 'deistv_pm'
+		MenuButton:
+			text: 'Разборка, сборка, чистка и смазка пистолета'
+			on_release: app.root.current = 'deistv_ak'
+		MenuButton:
+			text: 'Назад'
+			on_release: app.root.current = 'menu'
+
+<Deistv_pmScreen>:
+	name: 'deistv_pm'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "deistv"
+
+<Deistv_akScreen>:
+	name: 'deistv_ak'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "deistv"
+
+<Norm_pmScreen>:
+	name: "norm_pm"
+	BoxLayout:
+		orientation: "vertical"
+		#spacing: 10
+		#padding: 10
+		MenuButton:
+			text: 'Норматив №1'
+			on_release: app.root.current = 'norm1pm'
+		MenuButton:	
+			text: 'Норматив №2'
+			on_release: app.root.current = 'norm2pm'
+		MenuButton:
+			text: 'Норматив №3'
+			on_release: app.root.current = 'norm3pm'
+		MenuButton:
+			text: 'Норматив №4'
+			on_release: app.root.current = 'norm4pm'
+		MenuButton:
+			text: 'Норматив №5'
+			on_release: app.root.current = 'norm5pm'
+		MenuButton:
+			text: 'Норматив №6'
+			on_release: app.root.current = 'norm6pm'
+		MenuButton:
+			text: 'Назад'
+			on_release: app.root.current = 'menu'
+
+<Norm1pmScreen>:
+	name: 'norm1pm'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "norm_pm"
+
+<Norm2pmScreen>:
+	name: 'norm2pm'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "norm_pm"
+
+<Norm3pmScreen>:
+	name: 'norm3pm'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "norm_pm"
+
+<Norm4pmScreen>:
+	name: 'norm4pm'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "norm_pm"
+	
+<Norm5pmScreen>:
+	name: 'norm5pm'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "norm_pm"			
+
+<Norm6pmScreen>:
+	name: 'norm6pm'
+	FloatLayout:
+		BackgroundLabel:
+			background_color: 1, 204/255, 153/255, 1
+			size_hint: (1, 1)
+		BoxLayout:
+			orientation: 'vertical'
+			ScrollView:
+				effect_cls: ScrollEffect
+				GridLayout:
+					rows: 2
+					size_hint_y: None
+					height: self.minimum_height
+					BackgroundLabel:
+						background_color: 1, 204/255, 153/255, 1
+						size_hint_y: None
+						height: self.texture_size[1]
+						text_size: self.width, None
+						padding: 10, 10
+						text: root.text
+						font_size: 13
+						halign: "justify" #Выравнивание по ширине
+						valign: 'middle'	     
+						color: (0, 0, 0, 1)	
+			BoxLayout:
+				orientation: 'horizontal'
+				size_hint: (1, .07)
+				Button:
+					text: 'Назад'
+					color: (0, 0, 0, 1)
+					background_normal: ''
+					background_color: 51/255, 102/255, 255/255, 1
+					on_release: app.root.current = "norm_pm"
+
+
+
+
+
+
+
+
+<BackgroundColor@Widget>:
+	background_color: 1,1,1,1 
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+<BackgroundLabel@Label+BackgroundColor>:
+    background_color: 0,0,0,0 
